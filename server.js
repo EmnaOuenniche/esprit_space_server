@@ -40,4 +40,5 @@ app.use('/absence', AbsenceRoutes);
 
 app.listen(port,() => {
   connect();
+  console.log("im connected")
 });
