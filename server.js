@@ -18,7 +18,7 @@ mongoose.set('debug', true);
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect(`${port}`)
+  .connect(process.env.PORT)
   .then(() => {
     console.log(`Connected to ${databaseName}`);
   })
