@@ -17,14 +17,19 @@ const databaseName = 'espritt';
 mongoose.set('debug', true);
 mongoose.Promise = global.Promise;
 
-mongoose
-  .connect(`mongodb://localhost:27017/${databaseName}`)
-  .then(() => {
-    console.log(`Connected to ${databaseName}`);
-  })
-  .catch(err => {
-    console.log(err);
-  });
+export const connect = async () => {
+  try {
+    mongoose.set("strictQuery", false);
+    await mongoose.connect(process.env.MONGO);
+    console.log("Connected to mongoDB.");
+  } catch (error) {
+    throw error;
+  }
+};
+
+mongoose.connection.on("disconnected", () => {
+  console.log("mongoDB disconnected!");
+});
 
 app.use(express.json());
 
@@ -36,6 +41,6 @@ app.use('/classe', ClasseRoutes);
 
 app.use('/absence', AbsenceRoutes);
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
+app.listen(PORT,'0.0.0.0',() => {
+  connect();
 });
