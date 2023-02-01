@@ -20,7 +20,6 @@ mongoose.Promise = global.Promise;
 mongoose
   .connect(process.env.PORT)
   .then(() => {
-    console.log(`Connected to ${databaseName}`);
   })
   .catch(err => {
     console.log(err);
