@@ -41,6 +41,6 @@ app.use('/classe', ClasseRoutes);
 
 app.use('/absence', AbsenceRoutes);
 
-app.listen(PORT,'0.0.0.0',() => {
+app.listen(port,'0.0.0.0',() => {
   connect();
 });
