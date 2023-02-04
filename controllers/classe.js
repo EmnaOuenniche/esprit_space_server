@@ -1,18 +1,19 @@
 import Classes from "../models/classe.js";
  
 export async function createClasse(req,res) {
-    const { clas, iduser } = req.body;
-    const classe = new Classes();
+    //const { clas, iduser } = req.body;
+   /* const classe = new Classes();
     classe.clas = clas  
     classe.iduser = iduser
-    await classe.save();
+  */
+   const classe = await classe.save(req.body);
     res.status(201).send(classe);
     }
 
 
     export async function getAllClasses(req, res){
         var classes = await Classes.find();
-        res.status(200).send({ classes });
+        res.status(200).send({ classes }); 
       }
 
 

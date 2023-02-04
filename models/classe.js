@@ -10,7 +10,7 @@ const ClassesSchema = new Schema(
         },
         name: {
             type: String,
-            required: true
+          
         },
         iduser : {
             type: String,
