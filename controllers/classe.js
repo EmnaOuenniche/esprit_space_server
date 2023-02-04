@@ -1,12 +1,12 @@
 import Classes from "../models/classe.js";
  
 export async function createClasse(req,res) {
-    //const { clas, iduser } = req.body;
-   /* const classe = new Classes();
+    const { clas, iduser , name } = req.body;
+    const classe = new Classes();
     classe.clas = clas  
     classe.iduser = iduser
-  */
-   const classe = await classe.save(req.body);
+    classe.name = name
+    await classe.save();
     res.status(201).send(classe);
     }
 

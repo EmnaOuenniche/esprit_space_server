@@ -8,7 +8,7 @@ const ClassesSchema = new Schema(
             type: String,
             required: true
         },
-        name: {
+        name: { 
             type: String,
           
         },
